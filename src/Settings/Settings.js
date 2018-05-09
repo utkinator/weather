@@ -7,7 +7,7 @@ class Settings extends Component {
 
         this.state = {
             city: props.city,
-            temperatureScale: props.temperatureScale
+            units: props.units
         };
     }
 
@@ -17,9 +17,9 @@ class Settings extends Component {
         });
     };
 
-    onSetTemperatureScale = e => {
+    onSetUnits = e => {
         this.setState({
-            temperatureScale: e.target.value
+            units: e.target.value
         });
     };
 
@@ -33,7 +33,7 @@ class Settings extends Component {
     saveSettings = () => {
         this.props.onSaveSettings({
             city: this.state.city,
-            temperatureScale: this.state.temperatureScale
+            units: this.state.units
         });
     };
 
@@ -48,12 +48,9 @@ class Settings extends Component {
                         value={this.state.city}
                         onChange={this.onSetCity}
                     />
-                    <select
-                        value={this.state.temperatureScale}
-                        onChange={this.onSetTemperatureScale}
-                    >
-                        <option value="C" label="°C" />
-                        <option value="F" label="°F" />
+                    <select value={this.state.units} onChange={this.onSetUnits}>
+                        <option value="metric" label="Metric" />
+                        <option value="imperial" label="Imperial" />
                     </select>
                     <button type="submit">Save</button>
                 </form>

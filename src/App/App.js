@@ -145,7 +145,7 @@ class App extends Component {
                     // TODO: show message
                     console.log('error', error);
                     this.setState({
-                        city: ''
+                        data: null
                     });
                 });
         }
@@ -154,13 +154,13 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.toggleSetupMode}>Toggle Settings</button>
-
                 <MainView
                     city={this.state.city}
                     units={this.state.units}
                     data={this.state.data}
-                />
+                >
+                    <button onClick={this.toggleSetupMode}>Toggle Settings</button>
+                </MainView>                
 
                 {this.state.setupMode && (
                     <Settings

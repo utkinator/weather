@@ -5,5 +5,5 @@
     bottom: 0;
     width: 50%;
     background: yellow;
-    transition: width .5s ease-out;
+    transition: width 0.5s ease-out;
 }

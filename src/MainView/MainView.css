@@ -1,5 +1,5 @@
 .MainView {
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
     position: absolute;
     top: 0;
     right: 0;
@@ -7,10 +7,151 @@
     left: 0;
 }
 
-.MainView.clear {
-    background: lightskyblue;
+/* thunderstorm */
+.code-200,
+.code-201,
+.code-202 {
+
 }
 
-.MainView.overcast {
-    background: gray;
+/* lightning */
+.code-210,
+.code-211,
+.code-212,
+.code-221 {
+
+}
+
+/* thunderstorm */
+.code-230,
+.code-231,
+.code-232 {
+
+}
+
+/* sprinkle */
+.code-300,
+.code-301 {
+
+}
+
+/* rain, sprinkle, rain-mix */
+.code-302,
+.code-310,
+.code-311,
+.code-312,
+.code-313,
+.code-314,
+.code-321,
+.code-500,
+.code-501,
+.code-502,
+.code-503,
+.code-504,
+.code-511,
+.code-612,
+.code-615,
+.code-616,
+.code-620 {
+
+}
+
+/* showers */
+.code-520,
+.code-521,
+.code-522,
+.code-701 {
+
+}
+
+/* storm-showers */
+.code-531,
+.code-901 {
+
+}
+
+/* snow, sleet */
+.code-600,
+.code-601,
+.code-602,
+.code-601,
+.code-621,
+.code-622 {
+
+}
+
+/* smoke */
+.code-711 {
+
+}
+
+/* day-haze */
+.code-721 {
+
+}
+
+/* dust */
+.code-731,
+.code-761,
+.code-762 {
+
+}
+
+/* fog */
+.code-741 {
+
+}
+
+/* cloudy-gusts */
+.code-771,
+.code-801,
+.code-802,
+.code-803 {
+
+}
+
+/* tornado */
+.code-781,
+.code-900 {
+
+}
+
+/* day-sunny */
+.code-800 {
+
+}
+
+/* cloudy */
+.code-804 {
+
+}
+
+/* hurricane */
+.code-902 {
+
+}
+
+/* snowflake-cold */
+.code-903 {
+
+}
+
+/* hot */
+.code-904 {
+
+}
+
+/* windy */
+.code-905 {
+
+}
+
+/* hail */
+.code-906 {
+
+}
+
+/* strong-wind */
+.code-957 {
+
 }

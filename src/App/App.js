@@ -159,8 +159,10 @@ class App extends Component {
                     units={this.state.units}
                     data={this.state.data}
                 >
-                    <button onClick={this.toggleSetupMode}>Toggle Settings</button>
-                </MainView>                
+                    <button onClick={this.toggleSetupMode}>
+                        Toggle Settings
+                    </button>
+                </MainView>
 
                 {this.state.setupMode && (
                     <Settings

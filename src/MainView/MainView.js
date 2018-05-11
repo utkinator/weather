@@ -18,17 +18,18 @@ class MainView extends Component {
             );
         }
 
-        const { main, weather } = data;        
+        const { main, weather } = data;
+        const hours = new Date().getHours();
+        const isNight = hours > 20 && hours < 6;
 
-        let classNames = 'MainView ';
-        let icon = '';
+        let classNames = `MainView ${isNight ? 'night' : 'day'} code-`;
+        let iconClasses = `wi wi-owm-${isNight ? 'night' : 'day'}-`;
 
-        if (weather && weather[0] && weather[0].description) {
-            classNames += weather[0].description;
-            icon = `http://openweathermap.org/img/w/${
-                weather[0].icon
-            }.png`
-            document.querySelector("link[rel*='icon']").href = icon;
+        if (weather) {
+            const weatherData = weather[0];
+
+            classNames += weatherData.id;
+            iconClasses += weatherData.id;
         }
 
         return (
@@ -38,12 +39,7 @@ class MainView extends Component {
                 {city}
                 {main && Math.round(main.temp)}
                 {units === 'metric' ? '°C' : '°F'}
-                {weather && (
-                    <img
-                        alt="weather icon"
-                        src={icon}
-                    />
-                )}
+                {weather && <i className={iconClasses} />}
             </div>
         );
     }

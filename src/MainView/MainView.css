@@ -1,10 +1,27 @@
 .MainView {
-    transition: all 0.5s ease-out;
+    transition: all 0.7s ease-in-out;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    color: white;
+}
+
+.MainView.morning {
+    background-color: #e3bb88;
+}
+
+.MainView.day {
+    background-color: #d89864;
+}
+
+.MainView.evening {
+    background-color: #b1695a;
+}
+
+.MainView.night {
+    background-color: #644749;
 }
 
 /* thunderstorm */

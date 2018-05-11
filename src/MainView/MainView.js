@@ -18,12 +18,24 @@ class MainView extends Component {
             );
         }
 
-        const { main, weather } = data;
+        const { main, weather, name } = data;
         const hours = new Date().getHours();
-        const isNight = hours > 20 && hours < 6;
+        const isDayOrNightClassname = hours > 7 && hours < 20 ? 'day' : 'night';
 
-        let classNames = `MainView ${isNight ? 'night' : 'day'} code-`;
-        let iconClasses = `wi wi-owm-${isNight ? 'night' : 'day'}-`;
+        let timeOfDayClassname = '';
+
+        if (hours > 23 && hours < 6) {
+            timeOfDayClassname = 'night';
+        } else if (hours > 6 && hours < 11) {
+            timeOfDayClassname = 'morning';
+        } else if (hours > 11 && hours < 19) {
+            timeOfDayClassname = 'day';
+        } else if (hours > 19 && hours < 23) {
+            timeOfDayClassname = 'evening';
+        }
+
+        let classNames = `MainView ${timeOfDayClassname} code-`;
+        let iconClasses = `wi wi-owm-${isDayOrNightClassname}-`;
 
         if (weather) {
             const weatherData = weather[0];
@@ -34,11 +46,17 @@ class MainView extends Component {
 
         return (
             <div className={classNames}>
-                {/* {JSON.stringify(this.props.data)} */}
+                {JSON.stringify(this.props.data)}
                 {children}
-                {city}
+
+                {name}
                 {main && Math.round(main.temp)}
-                {units === 'metric' ? '°C' : '°F'}
+
+                {units === 'metric' ? (
+                    <i className="wi wi-celsius" />
+                ) : (
+                    <i className="wi wi-fahrenheit" />
+                )}
                 {weather && <i className={iconClasses} />}
             </div>
         );

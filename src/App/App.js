@@ -159,8 +159,8 @@ class App extends Component {
                     units={this.state.units}
                     data={this.state.data}
                 >
-                    <button onClick={this.toggleSetupMode}>
-                        Toggle Settings
+                    <button onClick={this.toggleSetupMode} title="Settings">
+                        <i className="wi wi-barometer" />
                     </button>
                 </MainView>
 

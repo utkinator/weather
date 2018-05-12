@@ -7,7 +7,6 @@ import './App.css';
 
 class App extends Component {
     state = {
-        setupMode: false,
         city: '',
         units: 'metric', // or 'imperial'
         data: {
@@ -64,8 +63,6 @@ class App extends Component {
                     this.getWeatherData();
                 }
             );
-        } else {
-            this.toggleSetupMode();
         }
 
         this.updateIntervalID = setInterval(() => {
@@ -98,7 +95,6 @@ class App extends Component {
                         this.SettingsKey,
                         JSON.stringify(settings)
                     );
-                    this.toggleSetupMode();
                     this.getWeatherData();
                 }
             );
@@ -106,14 +102,6 @@ class App extends Component {
             // TODO: show message
             return new Error(error);
         }
-    };
-
-    toggleSetupMode = () => {
-        this.setState(prevState => {
-            return {
-                setupMode: !prevState.setupMode
-            };
-        });
     };
 
     getWeatherData = () => {
@@ -132,7 +120,6 @@ class App extends Component {
                     } else {
                         let error = new Error(response.statusText);
                         error['response'] = response;
-
                         throw error;
                     }
                 })
@@ -154,23 +141,16 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Settings
+                    onSaveSettings={this.setSettings}
+                    city={this.state.city}
+                    units={this.state.units}
+                />
                 <MainView
                     city={this.state.city}
                     units={this.state.units}
                     data={this.state.data}
-                >
-                    <button onClick={this.toggleSetupMode} title="Settings">
-                        <i className="wi wi-barometer" />
-                    </button>
-                </MainView>
-
-                {this.state.setupMode && (
-                    <Settings
-                        onSaveSettings={this.setSettings}
-                        city={this.state.city}
-                        units={this.state.units}
-                    />
-                )}
+                />
             </div>
         );
     }

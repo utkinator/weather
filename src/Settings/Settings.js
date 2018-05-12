@@ -11,6 +11,14 @@ class Settings extends Component {
         };
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.city !== prevState.city) {
+            return {
+                city: nextProps.city
+            };
+        }
+    }
+
     onSetCity = e => {
         this.setState({
             city: e.target.value

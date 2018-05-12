@@ -1,0 +1,10 @@
+:root {
+    --morning-color: #e3bb88;
+    --day-color: #d89864;
+    --evening-color: #b1695a;
+    --night-color: #644749;
+    --weather-icon-color: #fce100;
+    --border-color: rgba(255, 255, 255, 0.2);
+
+    --header-height: 48px;
+}

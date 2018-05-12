@@ -1,34 +1,102 @@
 .MainView {
-    transition: all 0.7s ease-in-out;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    transition: all 0.35s ease-in-out;
     color: white;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+}
+
+.today {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    padding: 0 30%;
+    text-align: center;
+}
+
+.today .city {
+    font-size: 1.8rem;
+}
+
+.today .temp {
+    display: inline-block;
+    font-size: 5.3rem;
+}
+
+.today .temp .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 3.375rem;
+    height: 3.375rem;
+    font-size: 4.5rem;
+    line-height: 3.5rem;
+    color: var(--weather-icon-color);
+    margin-right: 1.25rem;
+}
+
+.today .temp .value {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.today .description {
+    font-size: 1.2375rem;
+    margin-bottom: 30px;
+}
+
+.today .other {
+    border-top: 1px solid var(--border-color);
+}
+
+.today .other li {
+    display: inline-block;
+    margin-right: 1.562rem;
+    font-size: 0.8125rem;
+    line-height: 1.312rem;
+    white-space: nowrap;
+}
+
+.today .other .value {
+    margin-left: 5px;
+}
+
+.today .section {
+    display: inline-block;
+    text-align: left;
+    margin: 20px 40px 40px;
+}
+.today .section .title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.today .section .wi {
+    margin-right: 5px;
+}
+.today .section .value {
 }
 
 .MainView.morning {
-    background-color: #e3bb88;
+    background-color: var(--morning-color);
 }
 
 .MainView.day {
-    background-color: #d89864;
+    background-color: var(--day-color);
 }
 
 .MainView.evening {
-    background-color: #b1695a;
+    background-color: var(--evening-color);
 }
 
 .MainView.night {
-    background-color: #644749;
+    background-color: var(--night-color);
 }
 
 /* thunderstorm */
 .code-200,
 .code-201,
 .code-202 {
-
 }
 
 /* lightning */
@@ -36,20 +104,17 @@
 .code-211,
 .code-212,
 .code-221 {
-
 }
 
 /* thunderstorm */
 .code-230,
 .code-231,
 .code-232 {
-
 }
 
 /* sprinkle */
 .code-300,
 .code-301 {
-
 }
 
 /* rain, sprinkle, rain-mix */
@@ -70,7 +135,6 @@
 .code-615,
 .code-616,
 .code-620 {
-
 }
 
 /* showers */
@@ -78,13 +142,11 @@
 .code-521,
 .code-522,
 .code-701 {
-
 }
 
 /* storm-showers */
 .code-531,
 .code-901 {
-
 }
 
 /* snow, sleet */
@@ -94,29 +156,24 @@
 .code-601,
 .code-621,
 .code-622 {
-
 }
 
 /* smoke */
 .code-711 {
-
 }
 
 /* day-haze */
 .code-721 {
-
 }
 
 /* dust */
 .code-731,
 .code-761,
 .code-762 {
-
 }
 
 /* fog */
 .code-741 {
-
 }
 
 /* cloudy-gusts */
@@ -124,51 +181,41 @@
 .code-801,
 .code-802,
 .code-803 {
-
 }
 
 /* tornado */
 .code-781,
 .code-900 {
-
 }
 
 /* day-sunny */
 .code-800 {
-
 }
 
 /* cloudy */
 .code-804 {
-
 }
 
 /* hurricane */
 .code-902 {
-
 }
 
 /* snowflake-cold */
 .code-903 {
-
 }
 
 /* hot */
 .code-904 {
-
 }
 
 /* windy */
 .code-905 {
-
 }
 
 /* hail */
 .code-906 {
-
 }
 
 /* strong-wind */
 .code-957 {
-
 }

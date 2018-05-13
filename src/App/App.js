@@ -9,40 +9,7 @@ class App extends Component {
     state = {
         city: '',
         units: 'metric', // or 'imperial'
-        data: {
-            coord: { lon: 30.73, lat: 46.48 },
-            weather: [
-                {
-                    id: 800,
-                    main: 'Clear',
-                    description: 'clear sky',
-                    icon: '01d'
-                }
-            ],
-            base: 'stations',
-            main: {
-                temp: 19,
-                pressure: 1006,
-                humidity: 55,
-                temp_min: 19,
-                temp_max: 19
-            },
-            visibility: 10000,
-            wind: { speed: 8, deg: 60, gust: 13 },
-            clouds: { all: 0 },
-            dt: 1525872600,
-            sys: {
-                type: 1,
-                id: 7366,
-                message: 0.0042,
-                country: 'UA',
-                sunrise: 1525833041,
-                sunset: 1525886228
-            },
-            id: 698740,
-            name: 'Odessa',
-            cod: 200
-        }
+        data: null
     };
 
     updateIntervalID;
@@ -104,6 +71,10 @@ class App extends Component {
         }
     };
 
+    refresh = () => {
+        this.getWeatherData();
+    };
+
     getWeatherData = () => {
         if (this.state.city) {
             fetch(
@@ -130,7 +101,6 @@ class App extends Component {
                 })
                 .catch(error => {
                     // TODO: show message
-                    console.log('error', error);
                     this.setState({
                         data: null
                     });
@@ -143,6 +113,7 @@ class App extends Component {
             <div className="App">
                 <Settings
                     onSaveSettings={this.setSettings}
+                    onRefresh={this.refresh}
                     city={this.state.city}
                     units={this.state.units}
                 />

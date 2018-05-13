@@ -3,17 +3,25 @@ import './MainView.css';
 
 class MainView extends Component {
     render() {
-        const { children, city, units, data } = this.props;
+        const { city, data } = this.props;
 
         if (!city) {
-            return null;
+            return (
+                <div className="no-data">
+                    <p>
+                        <i className="wi wi-alien" />
+                    </p>
+                </div>
+            );
         }
 
         if (!data) {
             return (
                 <div className="no-data">
-                    {children}
-                    No data found for the city: {city}
+                    <p>
+                        <i className="wi wi-na" /> No data found for the city:{' '}
+                        {city}
+                    </p>
                 </div>
             );
         }

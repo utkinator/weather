@@ -1,10 +1,12 @@
 :root {
-    --morning-color: #e3bb88;
-    --day-color: #d89864;
-    --evening-color: #b1695a;
-    --night-color: #644749;
+    --morning-color: #c1e3ff;
+    --day-color: #70bdf2;
+    --evening-color: #153f65;
+    --night-color: #03131f;
     --weather-icon-color: #fce100;
     --border-color: rgba(255, 255, 255, 0.2);
+    --text-shadow-color: #999;
+    --input-text-color: #cdd0d7;
 
     --header-height: 48px;
 }

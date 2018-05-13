@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Utils from '../Utils/Utils';
 import './Settings.css';
 
 class Settings extends Component {
@@ -9,6 +10,12 @@ class Settings extends Component {
             city: props.city,
             units: props.units
         };
+
+        this.searchInput = React.createRef();
+    }
+
+    componentDidMount() {
+        this.searchInput.current.focus();
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -16,25 +23,34 @@ class Settings extends Component {
             return {
                 city: nextProps.city
             };
+        } else {
+            return null;
         }
     }
 
     onSetCity = e => {
-        this.setState({
-            city: e.target.value
-        });
+        this.setState(
+            {
+                city: e.target.value
+            },
+            Utils.debounce(() => this.onSubmit())
+        );
     };
 
-    onSetUnits = e => {
-        this.setState({
-            units: e.target.value
-        });
+    onSetUnits = unit => {
+        this.setState(
+            {
+                units: unit
+            },
+            () => this.onSubmit()
+        );
     };
 
-    onSubmit = e => {
-        e.preventDefault();
-        e.stopPropagation();
+    onRefresh = e => {
+        this.props.onRefresh();
+    };
 
+    onSubmit = () => {
         this.saveSettings();
     };
 
@@ -48,20 +64,31 @@ class Settings extends Component {
     render() {
         return (
             <div className="Settings">
-                <form onSubmit={this.onSubmit}>
+                <form>
                     <input
                         type="search"
-                        placeholder="City"
+                        placeholder="Search"
                         required={true}
                         value={this.state.city}
                         onChange={this.onSetCity}
+                        ref={this.searchInput}
                     />
-                    <select value={this.state.units} onChange={this.onSetUnits}>
-                        <option value="metric" label="Metric" />
-                        <option value="imperial" label="Imperial" />
-                    </select>
-                    <button type="submit">Save</button>
                 </form>
+                <button
+                    onClick={() => this.onSetUnits('metric')}
+                    className={this.state.units === 'metric' ? 'active' : ''}
+                >
+                    <i className="wi wi-celsius" />
+                </button>
+                <button
+                    onClick={() => this.onSetUnits('imperial')}
+                    className={this.state.units === 'imperial' ? 'active' : ''}
+                >
+                    <i className="wi wi-fahrenheit" />
+                </button>
+                <button onClick={this.onRefresh}>
+                    <i className="wi wi-refresh" />
+                </button>
             </div>
         );
     }

@@ -1,4 +1,38 @@
 .Settings {
     height: var(--header-height);
     background: var(--night-color);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.Settings input {
+    max-width: 160px;
+    border: none;
+    height: 40px;
+    background: var(--evening-color);
+    margin: 4px;
+    padding: 0 15px;
+    color: var(--input-text-color);
+}
+
+.Settings button {
+    background: none;
+    border: none;
+    height: var(--header-height);
+    padding: 0 15px;
+    color: var(--input-text-color);
+    font-weight: lighter;
+    overflow: hidden;
+}
+
+.Settings button:hover {
+    background-color: var(--evening-color);
+}
+
+.Settings button .wi {
+    font-size: 2rem;
+}
+
+.Settings button.active .wi {
+    color: white;
 }

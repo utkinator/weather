@@ -64,16 +64,14 @@ class Settings extends Component {
     render() {
         return (
             <div className="Settings">
-                <form>
-                    <input
-                        type="search"
-                        placeholder="Search"
-                        required={true}
-                        value={this.state.city}
-                        onChange={this.onSetCity}
-                        ref={this.searchInput}
-                    />
-                </form>
+                <input
+                    type="search"
+                    placeholder="Search"
+                    required={true}
+                    value={this.state.city}
+                    onChange={this.onSetCity}
+                    ref={this.searchInput}
+                />
                 <button
                     onClick={() => this.onSetUnits('metric')}
                     className={this.state.units === 'metric' ? 'active' : ''}

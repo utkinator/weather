@@ -27,13 +27,13 @@ class App extends Component {
                     units: savedSettings.units
                 },
                 () => {
-                    this.getWeatherData();
+                    this.getWeatherDataForToday();
                 }
             );
         }
 
         this.updateIntervalID = setInterval(() => {
-            this.getWeatherData();
+            this.getWeatherDataForToday();
         }, this.updateInterval);
     }
 
@@ -62,7 +62,7 @@ class App extends Component {
                         this.SettingsKey,
                         JSON.stringify(settings)
                     );
-                    this.getWeatherData();
+                    this.getWeatherDataForToday();
                 }
             );
         } catch (error) {
@@ -72,13 +72,13 @@ class App extends Component {
     };
 
     refresh = () => {
-        this.getWeatherData();
+        this.getWeatherDataForToday();
     };
 
-    getWeatherData = () => {
+    getWeatherDataForToday = () => {
         if (this.state.city) {
             fetch(
-                `https://api.openweathermap.org/data/2.5/weather?` +
+                `${Utils.weatherProviderApiUrl}/weather?` +
                     Utils.getEncodedURIComponent({
                         q: this.state.city,
                         units: this.state.units,

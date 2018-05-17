@@ -9,13 +9,28 @@
     background-size: cover;
 }
 
+.MainView.morning {
+    background-color: var(--morning-color);
+}
+
+.MainView.day {
+    background-color: var(--day-color);
+}
+
+.MainView.evening {
+    background-color: var(--evening-color);
+}
+
+.MainView.night {
+    background-color: var(--night-color);
+}
+
 .today {
     display: flex;
     flex: 1;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 100px;
-    padding: 0 20%;
+    margin: 100px 0;
     text-align: center;
 }
 
@@ -48,52 +63,34 @@
     margin-bottom: 30px;
 }
 
-.today .other li {
-    display: inline-block;
-    margin-right: 1.562rem;
-    font-size: 0.8125rem;
-    line-height: 1.312rem;
-    white-space: nowrap;
-}
-
-.today .other .value {
-    margin-left: 5px;
+.today .other {
+    padding: 0 20%;
+    display: flex;
+    justify-content: center;
 }
 
 .today .section {
     border-top: 2px solid var(--border-color);
-    display: inline-block;
+    width: 20%;
     text-align: left;
-    margin: 20px 10px 40px;
-    padding: 0 40px 0 5px;
+    margin: 40px 2.5%;
+    padding: 10px;
+    white-space: nowrap;
 }
 
 .today .section .title {
     margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .today .section .wi {
-    margin-right: 5px;
+    margin-right: 10px;
+    font-size: 30px;
+    vertical-align: middle;
 }
 
 .today .section .value {
-}
 
-.MainView.morning {
-    background-color: var(--morning-color);
-}
-
-.MainView.day {
-    background-color: var(--day-color);
-}
-
-.MainView.evening {
-    background-color: var(--evening-color);
-}
-
-.MainView.night {
-    background-color: var(--night-color);
 }
 
 /* thunderstorm, lightning */
@@ -205,4 +202,14 @@
 /* hail */
 .code-906 {
     background-image: url('../Assets/bg/hail.png');
+}
+
+@media (max-width: 500px) {
+    .today .other {
+        flex-direction: column;
+    }
+
+    .today .section {
+        width: 100%;
+    }
 }

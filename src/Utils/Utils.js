@@ -1,4 +1,5 @@
 class Utils {
+    weatherProviderApiUrl = 'https://api.openweathermap.org/data/2.5';
     weatherProviderApiKey = '0d972221aeb61df4e9d43180abb60bf4';
 
     getEncodedURIComponent = params => {
@@ -19,6 +20,8 @@ class Utils {
             }, delay);
         };
     };
+
+    message = () => {};
 }
 
 export default new Utils();

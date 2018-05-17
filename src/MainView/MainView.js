@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Forecast from '../Forecast/Forecast';
 import './MainView.css';
 
 class MainView extends Component {
     render() {
-        const { city, data } = this.props;
+        const { city, units, data } = this.props;
 
         if (!city) {
             return (
@@ -28,7 +29,7 @@ class MainView extends Component {
 
         const { main, weather, name, visibility, wind, sys } = data;
         const { temp, temp_min, temp_max, pressure, humidity } = main;
-        const { sunrise, sunset } = sys;
+        const { sunrise, sunset, country } = sys;
         const { speed, deg, gust } = wind;
         const { id, description, icon } = weather[0];
 
@@ -66,7 +67,9 @@ class MainView extends Component {
         return (
             <div className={classNames}>
                 <div className="today">
-                    <div className="city">{name}</div>
+                    <div className="city">
+                        {name}, {country}
+                    </div>
                     <div className="temp">
                         <i className={iconClasses} />
 
@@ -80,12 +83,20 @@ class MainView extends Component {
                     </div>
                     <div className="other">
                         <div className="section">
-                            <div className="title">Sunrise</div>
-                            <i className="wi wi-sunrise" />
-                            <span className="value">{formattedSunrise}</span>
-                            <div className="title">Sunset</div>
-                            <i className="wi wi-sunset" />
-                            <span className="value">{formattedSunset}</span>
+                            <div className="title">Min</div>
+                            <i className="wi wi-thermometer-exterior" />
+                            <span className="value">
+                                {Math.round(temp_min)}
+                                <i className="wi wi-degrees" />
+                            </span>
+                            <div className="title">Max</div>
+                            <i className="wi wi-thermometer" />
+                            <span className="value">
+                                <span className="value">
+                                    {Math.round(temp_max)}
+                                    <i className="wi wi-degrees" />
+                                </span>
+                            </span>
                         </div>
 
                         <div className="section">
@@ -107,8 +118,18 @@ class MainView extends Component {
                             <i className="wi wi-humidity" />
                             <span className="value">{humidity} %</span>
                         </div>
+
+                        <div className="section">
+                            <div className="title">Sunrise</div>
+                            <i className="wi wi-sunrise" />
+                            <span className="value">{formattedSunrise}</span>
+                            <div className="title">Sunset</div>
+                            <i className="wi wi-sunset" />
+                            <span className="value">{formattedSunset}</span>
+                        </div>
                     </div>
                 </div>
+                {/*<Forecast city={city} units={units} />*/}
             </div>
         );
     }

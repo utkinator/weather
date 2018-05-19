@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Utils from '../Utils/Utils';
 import './Settings.css';
 
@@ -91,5 +92,12 @@ class Settings extends Component {
         );
     }
 }
+
+Settings.propTypes = {
+    onSaveSettings: PropTypes.func.isRequired,
+    onRefresh: PropTypes.func.isRequired,
+    city: PropTypes.string.isRequired,
+    units: PropTypes.string.isRequired
+};
 
 export default Settings;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Forecast from '../Forecast/Forecast';
 import './MainView.css';
+import PropTypes from "prop-types";
 
 class MainView extends Component {
     render() {
@@ -134,5 +135,11 @@ class MainView extends Component {
         );
     }
 }
+
+MainView.propTypes = {
+    city: PropTypes.string.isRequired,
+    units: PropTypes.string.isRequired,
+    data: PropTypes.object
+};
 
 export default MainView;

@@ -11,6 +11,7 @@
 
 .MainView.morning {
     background-color: var(--morning-color);
+    color: var(--evening-color);
 }
 
 .MainView.day {
@@ -35,22 +36,22 @@
 }
 
 .today .city {
-    font-size: 1.8rem;
+    font-size: 30px;
 }
 
 .today .temp {
     display: inline-block;
-    font-size: 5.3rem;
+    font-size: 85px;
 }
 
 .today .temp .icon {
     display: inline-block;
     vertical-align: middle;
-    height: 3.375rem;
-    font-size: 3.375rem;
-    line-height: 3.5rem;
+    height: 54px;
+    font-size: 54px;
+    line-height: 54px;
     color: var(--weather-icon-color);
-    margin-right: 1.25rem;
+    margin-right: 20px;
 }
 
 .today .temp .value {
@@ -59,7 +60,7 @@
 }
 
 .today .description {
-    font-size: 1.2375rem;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
@@ -79,8 +80,8 @@
 }
 
 .today .section .title {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: 24px;
+    margin-bottom: 16px;
 }
 
 .today .section .wi {
@@ -211,5 +212,6 @@
 
     .today .section {
         width: 100%;
+        text-align: center;
     }
 }

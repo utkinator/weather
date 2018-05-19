@@ -21,7 +21,27 @@ class Utils {
         };
     };
 
-    message = () => {};
+    message = ({ type = 'error', text = 'Unknown error happend', delay = 5000 }) => {
+        const messageText = document.createTextNode(text);
+        const messageElement = document.createElement('div');
+        const closeMessageButton = document.createElement('button');
+
+        closeMessageButton.className = 'close';
+        closeMessageButton.innerText = 'close';
+        closeMessageButton.addEventListener('click', () => {
+            document.body.removeChild(messageElement);
+        });
+
+        messageElement.className = `message ${type}`;
+        messageElement.appendChild(messageText);
+        messageElement.appendChild(closeMessageButton);
+
+        document.body.appendChild(messageElement);
+
+        setTimeout(() => {
+            document.body.removeChild(messageElement);
+        }, delay);
+    };
 }
 
 export default new Utils();

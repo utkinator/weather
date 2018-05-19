@@ -1061,7 +1061,7 @@ class Forecast extends Component {
     };
 
     componentDidMount() {
-        // this.getWeatherForecast();
+        this.getWeatherForecast();
     }
 
     getWeatherForecast = () => {
@@ -1088,9 +1088,8 @@ class Forecast extends Component {
                 });
             })
             .catch(error => {
-                // TODO: show message
-                this.setState({
-                    data: null
+                Utils.message({
+                    text: error
                 });
             });
     };

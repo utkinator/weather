@@ -26,3 +26,26 @@ body {
 :-moz-placeholder { /* Firefox 18- */
     color: var(--input-text-color);
 }
+
+.message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    padding: 20px;
+    color: white;
+    border: 2px solid white;
+}
+
+.message.error {
+    background: var(--error-color);
+}
+
+.message.success {
+    background: var(--success-color);
+}
+
+.message .close {
+    float: right;
+    margin-top: 15px;
+}

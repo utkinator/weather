@@ -45,8 +45,9 @@ class App extends Component {
         try {
             return JSON.parse(this.Storage.getItem(this.SettingsKey));
         } catch (error) {
-            // TODO: show message
-            return new Error(error);
+            Utils.message({
+                text: error
+            });
         }
     };
 
@@ -66,8 +67,9 @@ class App extends Component {
                 }
             );
         } catch (error) {
-            // TODO: show message
-            return new Error(error);
+            Utils.message({
+                text: error
+            });
         }
     };
 
@@ -100,9 +102,8 @@ class App extends Component {
                     });
                 })
                 .catch(error => {
-                    // TODO: show message
-                    this.setState({
-                        data: null
+                    Utils.message({
+                        text: error
                     });
                 });
         }

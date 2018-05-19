@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Forecast from '../Forecast/Forecast';
 import './MainView.css';
 import PropTypes from "prop-types";
 
 class MainView extends Component {
     render() {
-        const { city, units, data } = this.props;
+        const { city, data } = this.props;
 
         if (!city) {
             return (
@@ -31,8 +30,8 @@ class MainView extends Component {
         const { main, weather, name, visibility, wind, sys } = data;
         const { temp, temp_min, temp_max, pressure, humidity } = main;
         const { sunrise, sunset, country } = sys;
-        const { speed, deg, gust } = wind;
-        const { id, description, icon } = weather[0];
+        const { speed, deg } = wind;
+        const { description } = weather[0];
 
         const hours = new Date().getHours();
         const isDayOrNightClassname = hours > 7 && hours < 20 ? 'day' : 'night';
@@ -130,15 +129,14 @@ class MainView extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<Forecast city={city} units={units} />*/}
             </div>
         );
     }
 }
 
 MainView.propTypes = {
-    city: PropTypes.string.isRequired,
-    units: PropTypes.string.isRequired,
+    city: PropTypes.string,
+    units: PropTypes.string,
     data: PropTypes.object
 };
 

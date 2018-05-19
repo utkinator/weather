@@ -47,7 +47,7 @@ class Settings extends Component {
         );
     };
 
-    onRefresh = e => {
+    onRefresh = () => {
         this.props.onRefresh();
     };
 
@@ -69,7 +69,6 @@ class Settings extends Component {
                     type="search"
                     placeholder="Search"
                     required={true}
-                    value={this.state.city}
                     onChange={this.onSetCity}
                     ref={this.searchInput}
                 />
@@ -96,8 +95,8 @@ class Settings extends Component {
 Settings.propTypes = {
     onSaveSettings: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
-    city: PropTypes.string.isRequired,
-    units: PropTypes.string.isRequired
+    city: PropTypes.string,
+    units: PropTypes.string
 };
 
 export default Settings;

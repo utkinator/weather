@@ -7,6 +7,8 @@
     --border-color: rgba(255, 255, 255, 0.2);
     --text-shadow-color: #999;
     --input-text-color: #cdd0d7;
+    --error-color: red;
+    --success-color: lightgreen;
 
     --header-height: 48px;
 }

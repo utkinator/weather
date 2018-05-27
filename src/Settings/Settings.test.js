@@ -4,6 +4,9 @@ import Settings from './Settings';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Settings onRefresh={() => {}} onSaveSettings={() => {}}/>, div);
+    ReactDOM.render(
+        <Settings onRefresh={() => {}} onSaveSettings={() => {}} />,
+        div
+    );
     ReactDOM.unmountComponentAtNode(div);
 });

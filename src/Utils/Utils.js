@@ -15,13 +15,18 @@ class Utils {
 
         return function() {
             clearTimeout(timeout);
+
             timeout = setTimeout(() => {
                 func.apply(this, arguments);
             }, delay);
         };
     };
 
-    message = ({ type = 'error', text = 'Unknown error happend', delay = 5000 }) => {
+    message = ({
+        type = 'error',
+        text = 'Unknown error happened',
+        delay = 5000
+    }) => {
         const messageText = document.createTextNode(text);
         const messageElement = document.createElement('div');
         const closeMessageButton = document.createElement('button');

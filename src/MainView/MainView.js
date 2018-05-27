@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './MainView.css';
-import PropTypes from "prop-types";
 
 class MainView extends Component {
     render() {
@@ -48,15 +48,15 @@ class MainView extends Component {
             timeOfDayClassname = 'evening';
         }
 
-        let classNames = `MainView ${timeOfDayClassname} code-`;
-        let iconClasses = `icon wi wi-owm-${isDayOrNightClassname}-`;
-        let windClassname = `wi wi-wind from-${deg}-deg`;
+        const windIconClassNames = `wi wi-wind from-${deg}-deg`;
+        let mainViewClassNames = `MainView ${timeOfDayClassname} code-`;
+        let weatherIconClassNames = `icon wi wi-owm-${isDayOrNightClassname}-`;
 
         if (weather) {
             const weatherData = weather[0];
 
-            classNames += weatherData.id;
-            iconClasses += weatherData.id;
+            mainViewClassNames += weatherData.id;
+            weatherIconClassNames += weatherData.id;
         }
 
         const sunriseTime = new Date(sunrise * 1000);
@@ -65,13 +65,13 @@ class MainView extends Component {
         const formattedSunset = `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
 
         return (
-            <div className={classNames}>
+            <div className={mainViewClassNames}>
                 <div className="today">
                     <div className="city">
                         {name}, {country}
                     </div>
                     <div className="temp">
-                        <i className={iconClasses} />
+                        <i className={weatherIconClassNames} />
 
                         <span className="value">
                             {Math.round(temp)}
@@ -101,7 +101,7 @@ class MainView extends Component {
 
                         <div className="section">
                             <div className="title">Wind</div>
-                            <i className={windClassname} />
+                            <i className={windIconClassNames} />
                             <span className="value">{speed} km/h</span>
                             <div className="title">Barometer</div>
                             <i className="wi wi-barometer" />

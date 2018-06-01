@@ -21,10 +21,6 @@
     margin: auto;
 }
 
-.App .no-data span {
-    white-space: nowrap;
-}
-
 .App .no-data .wi {
     display: block;
     font-size: 64px;
@@ -33,5 +29,6 @@
 
 .App .no-data .wi-direction-up-right {
     display: inline-block;
-    margin-right: -30px;
+    margin: 0 0 0 20px;
+    vertical-align: middle;
 }

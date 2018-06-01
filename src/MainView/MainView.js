@@ -11,6 +11,7 @@ class MainView extends Component {
                 <div className="no-data">
                     <p>
                         <i className="wi wi-alien" />
+                        <span>Search for your place over there <i className="wi wi-direction-up-right" /></span>
                     </p>
                 </div>
             );
@@ -83,23 +84,6 @@ class MainView extends Component {
                     </div>
                     <div className="other">
                         <div className="section">
-                            <div className="title">Min</div>
-                            <i className="wi wi-thermometer-exterior" />
-                            <span className="value">
-                                {Math.round(temp_min)}
-                                <i className="wi wi-degrees" />
-                            </span>
-                            <div className="title">Max</div>
-                            <i className="wi wi-thermometer" />
-                            <span className="value">
-                                <span className="value">
-                                    {Math.round(temp_max)}
-                                    <i className="wi wi-degrees" />
-                                </span>
-                            </span>
-                        </div>
-
-                        <div className="section">
                             <div className="title">Wind</div>
                             <i className={windIconClassNames} />
                             <span className="value">{speed} km/h</span>
@@ -126,6 +110,23 @@ class MainView extends Component {
                             <div className="title">Sunset</div>
                             <i className="wi wi-sunset" />
                             <span className="value">{formattedSunset}</span>
+                        </div>
+
+                        <div className="section">
+                            <div className="title">Min</div>
+                            <i className="wi wi-thermometer-exterior" />
+                            <span className="value">
+                                {Math.round(temp_min)}
+                                <i className="wi wi-degrees" />
+                            </span>
+                            <div className="title">Max</div>
+                            <i className="wi wi-thermometer" />
+                            <span className="value">
+                                <span className="value">
+                                    {Math.round(temp_max)}
+                                    <i className="wi wi-degrees" />
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,7 @@ class Settings extends Component {
             {
                 city: e.target.value
             },
-            Utils.debounce(() => this.onSubmit())
+            Utils.debounce(() => this.onSubmit(), 2000)
         );
     };
 
@@ -84,7 +84,7 @@ class Settings extends Component {
                 >
                     <i className="wi wi-fahrenheit" />
                 </button>
-                <button onClick={this.onRefresh}>
+                <button onClick={this.onRefresh} className={this.props.isFetching ? 'fetching' : ''}>
                     <i className="wi wi-refresh" />
                 </button>
             </div>
@@ -96,7 +96,8 @@ Settings.propTypes = {
     onSaveSettings: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
     city: PropTypes.string,
-    units: PropTypes.string
+    units: PropTypes.string,
+    isFetching: PropTypes.bool.isRequired
 };
 
 export default Settings;

@@ -9,7 +9,8 @@ class App extends Component {
     state = {
         city: '',
         units: 'metric', // or 'imperial'
-        data: null
+        data: null,
+        isFetching: false
     };
 
     updateIntervalID;
@@ -79,33 +80,41 @@ class App extends Component {
 
     getWeatherDataForToday = () => {
         if (this.state.city) {
-            fetch(
-                `${Utils.weatherProviderApiUrl}/weather?` +
-                    Utils.getEncodedURIComponent({
-                        q: this.state.city,
-                        units: this.state.units,
-                        appid: Utils.weatherProviderApiKey
+            this.setState({
+                isFetching: true
+            }, () => {
+                fetch(
+                    `${Utils.weatherProviderApiUrl}/weather?` +
+                        Utils.getEncodedURIComponent({
+                            q: this.state.city,
+                            units: this.state.units,
+                            appid: Utils.weatherProviderApiKey
+                        })
+                )
+                    .then(response => {
+                        if (response.status >= 200 && response.status < 300) {
+                            return response.json();
+                        } else {
+                            let error = new Error(response.statusText);
+                            error['response'] = response;
+                            throw error;
+                        }
                     })
-            )
-                .then(response => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    } else {
-                        let error = new Error(response.statusText);
-                        error['response'] = response;
-                        throw error;
-                    }
-                })
-                .then(data => {
-                    this.setState({
-                        data
+                    .then(data => {
+                        this.setState({
+                            data,
+                            isFetching: false
+                        });
+                    })
+                    .catch(error => {
+                        Utils.message({
+                            text: error
+                        });
+                        this.setState({
+                            isFetching: false
+                        });
                     });
-                })
-                .catch(error => {
-                    Utils.message({
-                        text: error
-                    });
-                });
+            });
         }
     };
 
@@ -117,6 +126,7 @@ class App extends Component {
                     onRefresh={this.refresh}
                     city={this.state.city}
                     units={this.state.units}
+                    isFetching={this.state.isFetching}
                 />
                 <MainView
                     city={this.state.city}

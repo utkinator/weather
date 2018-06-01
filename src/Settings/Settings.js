@@ -97,7 +97,7 @@ Settings.propTypes = {
     onRefresh: PropTypes.func.isRequired,
     city: PropTypes.string,
     units: PropTypes.string,
-    isFetching: PropTypes.bool.isRequired
+    isFetching: PropTypes.bool
 };
 
 export default Settings;
